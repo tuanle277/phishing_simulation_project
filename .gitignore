@@ -1,5 +1,5 @@
 *.log
-*.txt
+captured_credentials.txt
 *.mmdb 
 
 /captured_data/

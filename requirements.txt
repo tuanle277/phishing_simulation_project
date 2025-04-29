@@ -1,0 +1,6 @@
+Flask
+requests
+psutil
+user_agents
+geoip2
+gunicorn
