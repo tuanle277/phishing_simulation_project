@@ -1,3 +1,5 @@
 *.log
 *.txt
 *.mmdb 
+
+/captured_data/
