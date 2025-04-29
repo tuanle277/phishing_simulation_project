@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-04-29T12:18:35.627560",
+  "session_id": "7b7059df-66f8-4691-be8b-9bfc408f390b",
+  "credentials": {
+    "username": "",
+    "password": "",
+    "possible_email": "Not found"
+  },
+  "client_info": {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+    "browser": "Chrome 135.0.0",
+    "operating_system": "Mac OS X 10.15.7",
+    "device": "Mac Apple Mac",
+    "is_mobile": false,
+    "is_tablet": false,
+    "is_pc": true,
+    "is_bot": false,
+    "fingerprint": "36c3af6e90bfa9e3cb6ada2626e353a935c171d24b6964c33fe9554e9ab2a837",
+    "referrer": "http://127.0.0.1:5000/",
+    "referrer_domain": "127.0.0.1:5000",
+    "origin": "http://127.0.0.1:5000",
+    "host": "127.0.0.1:5000",
+    "accept_language": "en-US,en;q=0.9",
+    "accept_encoding": "gzip, deflate, br, zstd",
+    "do_not_track": "Unknown",
+    "cookies": {
+      "session": ".eJxlyrsKwjAUANB_ubMteZrHLFgUcbAOTiHgrYTYJprQDuK_290znw8M4V2qm0MJFSwwwmRDRMNMT5kl0krWcsmVMrCB7B_onsnfXQ0j_m2qLRet0MRQte6CpYQ0uZoiTmvevYZDNMtl61S3X7K_oezTMatrTCeczxq-P_xiKSg.aBEJ6g.yQNL_pG3xFEnFF_wMXJ1cWgahng",
+      "csm-hit": "6105GHANE540GE228KG6+b-6105GHANE540GE228KG6|1745947115606"
+    },
+    "session_token": "DqfJk9wS6_7HGwpaYe5ToKp7UkoMevO8",
+    "first_visit": "2025-04-29T12:05:52.353779",
+    "time_on_page": 1.148217,
+    "geolocation": {
+      "country": "Unknown",
+      "city": "Unknown"
+    }
+  },
+  "server_info": {
+    "hostname": "Mac.lan",
+    "server_os": "Darwin 24.1.0",
+    "python_version": "3.12.7",
+    "server_time": "2025-04-29T12:18:35.627560",
+    "server_timezone": "CDT",
+    "cpu_usage": 0.0,
+    "memory_usage": 76.4
+  },
+  "form_data": {
+    "appActionToken": "xEcKLmFtj2BJjgNSi5GenCEojTfk8j3D",
+    "appAction": "SIGNIN",
+    "openid.pape.max_auth_age": "ape:MTgwMDA=",
+    "openid.identity": "ape:aHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjAvaWRlbnRpZmllcl9zZWxlY3Q=",
+    "ssoResponse": "ape:ZXlKNmFYQWlPaUpFUlVZaUxDSmxibU1pT2lKQk1qVTJSME5OSWl3aVlXeG5Jam9pUVRJMU5rdFhJbjAucXV5cUg1blR1eVpROW4zVk5JNzB0UTdzV1Y3MFBoMTVxdmhpMEhjaXYyajA2dG85aWo0cTh3LnVEcDBkenBxRjUzdnhVNXgubGVMbWRycnBlbUhwM0FuR1h0MnpqdDJzd2YyN0xqV3o3UTllMUpJcXdnUU1CdDEzZ0l0TjdUWlkyaWdMX09LWHZ1ZWxKVUF2Nk5iREktNjE1SEkwazY0cTNLOEMtbURkM0FRUlB5Umk3ZG96TXJ5UTE3bGRLYjhheDJSb2RpYTI4OXYtNWd6Y3dGbmoxSG5aQVJwWk9mX3pSbnZ2bUxBVzh6YUhQMm93Y1VyQWQ0bW5tLUZnVXNaYjUxdmpjLU5UeHRyWFNmakVTN1lqMEtoTWpTYkJqMnlVdHItR0ZEVjVpVEgxeWkyWGFUS2lZa0M1RUROOEthdXdlaTRqb1diVG1zXzJyY0EuSWR4ck9rTTNuOXZlc09GTlVRZlk5QQ==",
+    "language": "ape:ZW5fVVM=",
+    "pageId": "ape:c2NfZXVfYW1hem9uX3Yy",
+    "openid.return_to": "ape:aHR0cHM6Ly9zZWxsZXJjZW50cmFsLWV1cm9wZS5hbWF6b24uY29tL2hvbWU/U2lnbitJbj0mY29yPWxvZ2luX0VV",
+    "prevRID": "ape:NjEwNUdIQU5FNTQwR0UyMjhLRzY=",
+    "openid.assoc_handle": "ape:c2NfZXVfYW1hem9uX3Yy",
+    "openid.mode": "ape:Y2hlY2tpZF9zZXR1cA==",
+    "openid.ns.pape": "ape:aHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvZXh0ZW5zaW9ucy9wYXBlLzEuMA==",
+    "prepopulatedLoginId": "",
+    "failedSignInCount": "ape:MA==",
+    "openid.claimed_id": "ape:aHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjAvaWRlbnRpZmllcl9zZWxlY3Q=",
+    "openid.ns": "ape:aHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjA=",
+    "email": "",
+    "create": "0",
+    "password": ""
+  },
+  "request_headers": {
+    "Host": "127.0.0.1:5000",
+    "Connection": "keep-alive",
+    "Content-Length": "1415",
+    "Cache-Control": "max-age=0",
+    "Sec-Ch-Ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
+    "Sec-Ch-Ua-Mobile": "?0",
+    "Sec-Ch-Ua-Platform": "\"macOS\"",
+    "Origin": "http://127.0.0.1:5000",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-User": "?1",
+    "Sec-Fetch-Dest": "document",
+    "Referer": "http://127.0.0.1:5000/",
+    "Accept-Encoding": "gzip, deflate, br, zstd",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Cookie": "session=.eJxlyrsKwjAUANB_ubMteZrHLFgUcbAOTiHgrYTYJprQDuK_290znw8M4V2qm0MJFSwwwmRDRMNMT5kl0krWcsmVMrCB7B_onsnfXQ0j_m2qLRet0MRQte6CpYQ0uZoiTmvevYZDNMtl61S3X7K_oezTMatrTCeczxq-P_xiKSg.aBEJ6g.yQNL_pG3xFEnFF_wMXJ1cWgahng; csm-hit=6105GHANE540GE228KG6+b-6105GHANE540GE228KG6|1745947115606"
+  },
+  "meta": {
+    "capture_version": "2.0",
+    "notes": "Educational demonstration only"
+  }
+}

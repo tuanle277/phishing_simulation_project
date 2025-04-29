@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-04-28 14:52:10",
+  "session_id": "6f730c00-02bf-45ce-ae42-f9e48a092a40",
+  "credentials": {
+    "username": "letuanminh2707@gmail.com",
+    "password": "Kevin Le",
+    "possible_email": "letuanminh2707@gmail.com"
+  },
+  "client_info": {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+    "browser": "Chrome 135.0.0",
+    "operating_system": "Mac OS X 10.15.7",
+    "referrer": "http://127.0.0.1:5000/",
+    "cookies": {
+      "session": ".eJyVU2tvozgU_SsjPpfEEJ6RRlqSJiktaV6QB5sVcox5JGATnk2q_vc1Q0eaGe2H7jfr-p57zj0-fucM8w43t0dn59SHLZyTpooXihk1lvPUHHZIyZr1y_564YZf7nzgUI59TMoYJgXDvR-5kl4wOXLDb0fuBkW9B4HhHi6vblifJihcTt01lUdXy1Z1fX3ygG7RGghW6Ehg5zl3aW_jidXwZHQ_LYmJosc3azfmB46r7M3HU0nRy0tQAKJXuQsc152V7jiXZzSId-LaX53Nc7aoFsH5stTC0X37Nnp2gsMt3CqnpRrX-NZ4uTWz1e1Wakp7PnqUqRvu0wDla3kOx-HhxbDNjbGebKarp9lenMdPPLgs1tvtPk7hYOXs0mnoFwYQVPnIPbAdcxzkuIi8X9YW-n2AzpPrAQWX9C6obKxprA1jZjSb12bKW7qZm-qkCj298tOz50xjMsNznQ_OkF9GsykGEcaGV9besytJF9UtnOhc6bmpb0TVGttTatW7Vcf_g9er8rjjjsoyK4b9PoVVGYm9kNIwwTCLix6iaf9TZItDScyezYv9DqcKYAB0WdMUSeSvp7OkJ2mh6f4gEOvyoviKoqNLkESDuI5OPZhlxefsqsA5oqRkw1qK34YXmKWj7Ahmi_Fmued5extMXwkBb7ME-WOtEURFduBEgcaowxaIZrhoQX8fOXYkrcSHX1ZrmubPvdpl-62SmAS0h1MYJ_8Tk-UsQgn-GipsCXo5hj4lye1rmCJr-wv2sGXxNYSfs8D2OlX_tICKsEJeYM-nTMBn2H5HdpMhQrQin8Z3JfyWxfmtq4hAlHkg8aJqi2AoKENZ7emyJAHFPXIf7E-f6YkFg31nDAHQNQ3wGKsqLwGEeE0BCu_7eKADVRMFAFh_66LX2sgN37kf7jNsgssKkjQmkagC9a_OMyaR9XeaOwpBUBRBkQeSrouSKIoaAEo7k8AUs2vrWAGA4Te7OlYChjJhV1mMyipvb39ayHL533Hsw74xDjWKnvd-U5ni5WCt0nHw-lKI5InUo9EihJulau_xQqLo6srrml8k9NZ8L3SFR9zHx78CVrlm.aA_Fwg.uOZJBv-MjxE5qaPkk5ndryMOA3s"
+    },
+    "language": "en-US,en;q=0.9"
+  },
+  "server_info": {
+    "hostname": "Kevins-MacBook-Pro.local",
+    "server_os": "Darwin 24.1.0"
+  }
+}

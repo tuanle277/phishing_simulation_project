@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-04-28T15:06:00.567753",
+  "session_id": "05ed08fa-1f5e-46e3-bb99-01a562a85de9",
+  "password_analysis": {
+    "length": 8,
+    "has_uppercase": true,
+    "has_lowercase": true,
+    "has_digit": false,
+    "has_special": true,
+    "common_patterns": [],
+    "entropy": 56,
+    "strength": "Strong"
+  },
+  "extracted_data": {
+    "from_username": {
+      "email": [
+        "letuanminh2707@gmail.com"
+      ]
+    },
+    "from_password": {}
+  },
+  "correlation": {}
+}

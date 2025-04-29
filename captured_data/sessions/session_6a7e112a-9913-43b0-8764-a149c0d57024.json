@@ -1,0 +1,77 @@
+{
+  "timestamp": "2025-04-28T15:05:40.577302",
+  "session_id": "6a7e112a-9913-43b0-8764-a149c0d57024",
+  "credentials": {
+    "username": "letuanminh2707@gmail.com",
+    "password": "Kevin Le",
+    "possible_email": "letuanminh2707@gmail.com"
+  },
+  "client_info": {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+    "browser": "Chrome 135.0.0",
+    "operating_system": "Mac OS X 10.15.7",
+    "device": "Mac Apple Mac",
+    "is_mobile": false,
+    "is_tablet": false,
+    "is_pc": true,
+    "is_bot": false,
+    "fingerprint": "36c3af6e90bfa9e3cb6ada2626e353a935c171d24b6964c33fe9554e9ab2a837",
+    "referrer": "http://127.0.0.1:5000/",
+    "referrer_domain": "127.0.0.1:5000",
+    "origin": "http://127.0.0.1:5000",
+    "host": "127.0.0.1:5000",
+    "accept_language": "en-US,en;q=0.9",
+    "accept_encoding": "gzip, deflate, br, zstd",
+    "do_not_track": "Unknown",
+    "cookies": {
+      "session": ".eJyrVkrLLCouiS_LLM4sUbJSMjIwMtU1MNE1sggxNLUyMLEyMtUzNTE1MjdV0lEqSExPjc_JT0yJL8nMTcWj2sISqLo4tbg4Mz8vviQ_OzUPqDg1LTgsOSgq3aIsOcPN3SIr1cgpyt_XwCDIM8w5LcUnTKkWAPZwKIk.aA_fSQ.p91eK0zP1RqMuzNuVGUerU4syQE"
+    },
+    "session_token": "No session token",
+    "first_visit": "Unknown",
+    "time_on_page": "Unknown",
+    "geolocation": {
+      "country": "Unknown",
+      "city": "Unknown"
+    }
+  },
+  "server_info": {
+    "hostname": "Kevins-MacBook-Pro.local",
+    "server_os": "Darwin 24.1.0",
+    "python_version": "3.12.7",
+    "server_time": "2025-04-28T15:05:40.577302",
+    "server_timezone": "CDT",
+    "cpu_usage": 0.0,
+    "memory_usage": 81.2
+  },
+  "form_data": {
+    "username": "letuanminh2707@gmail.com",
+    "password": "Kevin Le"
+  },
+  "request_headers": {
+    "Host": "127.0.0.1:5000",
+    "Connection": "keep-alive",
+    "Content-Length": "53",
+    "Cache-Control": "max-age=0",
+    "Sec-Ch-Ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
+    "Sec-Ch-Ua-Mobile": "?0",
+    "Sec-Ch-Ua-Platform": "\"macOS\"",
+    "Origin": "http://127.0.0.1:5000",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-User": "?1",
+    "Sec-Fetch-Dest": "document",
+    "Referer": "http://127.0.0.1:5000/",
+    "Accept-Encoding": "gzip, deflate, br, zstd",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Cookie": "session=.eJyrVkrLLCouiS_LLM4sUbJSMjIwMtU1MNE1sggxNLUyMLEyMtUzNTE1MjdV0lEqSExPjc_JT0yJL8nMTcWj2sISqLo4tbg4Mz8vviQ_OzUPqDg1LTgsOSgq3aIsOcPN3SIr1cgpyt_XwCDIM8w5LcUnTKkWAPZwKIk.aA_fSQ.p91eK0zP1RqMuzNuVGUerU4syQE"
+  },
+  "meta": {
+    "capture_version": "2.0",
+    "notes": "Educational demonstration only"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-04-29T12:18:36.640507",
+  "session_id": "7b7059df-66f8-4691-be8b-9bfc408f390b",
+  "password_analysis": {
+    "length": 0,
+    "has_uppercase": false,
+    "has_lowercase": false,
+    "has_digit": false,
+    "has_special": false,
+    "common_patterns": [],
+    "entropy": 0,
+    "strength": "Very Weak"
+  },
+  "extracted_data": {
+    "from_username": {},
+    "from_password": {}
+  },
+  "correlation": {
+    "password_contains_username": true
+  }
+}
