@@ -1,17 +1,17 @@
 {
   "total_visits": 6,
-  "total_submissions": 2,
+  "total_submissions": 1,
   "unique_ips": [
     "127.0.0.1"
   ],
   "browsers": {
-    "Chrome 135.0.0": 2
+    "Chrome 135.0.0": 1
   },
   "operating_systems": {
-    "Mac OS X 10.15.7": 2
+    "Mac OS X 10.15.7": 1
   },
   "countries": {
-    "Unknown": 2
+    "Unknown": 1
   },
-  "start_time": "2025-04-29T12:05:48.630850"
+  "start_time": "2025-04-30T14:20:58.227046"
 }

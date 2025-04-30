@@ -1,0 +1,7 @@
+.logo-small {
+  max-width: 100px; /* Adjust this value to your desired maximum width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Optional: Helps with centering if needed */
+  margin-left: auto; /* Optional: Center the image if its container allows */
+  margin-right: auto; /* Optional: Center the image if its container allows */
+}
