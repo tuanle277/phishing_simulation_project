@@ -38,13 +38,13 @@ ANALYTICS_DIR = os.path.join(LOG_DIR, 'analytics')
 SESSION_DIR = os.path.join(LOG_DIR, 'sessions')
 IP_DIR = os.path.join(LOG_DIR, 'ip_data')
 
-for directory in [LOG_DIR, ANALYTICS_DIR, SESSION_DIR, IP_DIR]:
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+# for directory in [LOG_DIR, ANALYTICS_DIR, SESSION_DIR, IP_DIR]:
+#     if not os.path.exists(directory):
+#         os.makedirs(directory)
 
-if not os.path.exists(LOG_FILE):
-    with open(LOG_FILE, 'w') as f:
-        f.write(f"--- Log Started at {datetime.datetime.now().isoformat()} ---\n")
+# if not os.path.exists(LOG_FILE):
+#     with open(LOG_FILE, 'w') as f:
+#         f.write(f"--- Log Started at {datetime.datetime.now().isoformat()} ---\n")
 
 # Statistics tracking
 stats = {
